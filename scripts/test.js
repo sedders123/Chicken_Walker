@@ -21,21 +21,19 @@ function initialize() {
             title: data.title,
             icon: 'imgs/chicken.png'
         });
-        google.maps.event.addListener(marker, "click", (function(marker){
-        return function() {
-        console.log("Clicked")
-          var image = '<p>' + data.title + '</p>' + '<p>' + data.description + '</p>';
-          infowindow.setContent(image);
-          console.log(infowindow)
-          console.log(image)
-          infowindow.open(map, marker);
-        };
-      })(marker));
         
     });
     
     
-
+    $.each(markers, function(index, value) {
+    google.maps.event.addListener(marker, "click", (function(marker){
+        return function() {
+          var image = '<p>' + title + '</p>';
+          infowindow.setContent(image);
+          infowindow.open(map, marker);
+        };
+      })(marker));
+});
 
     
       
@@ -55,7 +53,7 @@ function getMarkersPos(callback){
         markers.push(latLng)
         
         });
-        
+        window.app.json = json1
         callback(markers)
     });
 }
@@ -69,7 +67,6 @@ function getMenu(callback){
         menu.push(item)
         
         });
-        window.app.json = json1
         callback(menu)
     });
     
@@ -117,8 +114,7 @@ function getDistance(){
    if(closest){
     //closest.marker will be the nearest marker, do something with it
     //here we simply trigger a click, which will open the InfoWindow 
-    getNoOfTimesToWalk(closest.distance, getNoOfCalories())  
-    console.log("Works")
+    getNoOfTimesToWalk(closest.distance, getNoOfCalories)   
    } 
    });
    
@@ -130,17 +126,12 @@ function getDistance(){
 function getNoOfCalories(){
     
     var selected = $("#menu").val()
-    console.log(selected)
     var json = window.app.json
-    var calories = 0
-    $.each(selected, function(i,index){
-        console.log(index)
+    $.each(selected, function(index){
         index = parseInt(index)
-        calories += parseInt(json[index].Calories)
-        console.log(calories)
-        
+        console.log([index])
     });
-    return calories
+    
     
     
     
@@ -156,8 +147,8 @@ function getNoOfTimesToWalk(distance, calories){
   } 
   else if (distNeeded > distance){
      var noOfTimes =  distNeeded/distance
-       document.getElementById("noOfTimes").innerHTML= "Number of times to walk between your home and the nearest KFC to burn the calories off.: " +Math.ceil(noOfTimes) + " times"
-   };1
+       document.getElementById("noOfTimes").innerHTML= Math.ceil(noOfTimes)
+   };
    };
 
 getMenu(function(menu){
