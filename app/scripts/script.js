@@ -153,7 +153,7 @@ function getNoOfTimesToWalk(distance, calories){
   var distNeeded = calories / calPerMeter;
   
   if (distNeeded < distance) {
-    return "1";  
+    document.getElementById("noOfTimes").innerHTML= "You only need to walk once :)" 
   } 
   else if (distNeeded > distance){
      var noOfTimes =  distNeeded/distance
