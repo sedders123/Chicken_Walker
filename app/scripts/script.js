@@ -1,3 +1,4 @@
+console.log("Copyright Chicken Walker Team")
 var markers =[]
 window.app = {}
 function initialize() {
