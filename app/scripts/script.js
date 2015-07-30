@@ -157,6 +157,7 @@ function getNoOfTimesToWalk(distance, calories){
   } 
   else if (distNeeded > distance){
      var noOfTimes =  distNeeded/distance
+     console.log("Success")
        document.getElementById("noOfTimes").innerHTML= "Number of times to walk between your home and the nearest KFC to burn the calories off.: " +Math.ceil(noOfTimes) + " times"
    };1
    };
