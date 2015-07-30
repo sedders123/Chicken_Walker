@@ -83,7 +83,7 @@ function getDistance(){
     
     postcode = document.getElementById("postcode").value;
     console.log(postcode)
-    
+    var postcodeLocation
     if (geocoder){
     geocoder.geocode( { 'address': postcode}, function(results, status)
    {
