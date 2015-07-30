@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+		<link rel="stylesheet" href="styles/style.css" type="text/css" />
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.multi-select.js"></script>
+		<script src="scripts/script.js"> </script>
+		
+		<meta charset="utf-8">
+		<title>Chicken Walker</title>
+	</head>
+
+	<body>
+		<div class="header">
+			<img src="imgs/logo.png" style="max-height:100px; float:left;"></img>
+			<h1 style="float:left;">Chicken Walker</h1>
+			<span class="header-right">I'm Walkin' It</span>
+		</div>
+		<div class="map" id="map-canvas"></div>
+		<div class="main">
+			<p>Press Ctrl and Left Click to select multiple items.</p>
+			 <form>
+			 	<select multiple="multiple" id="menu">
+			 </select>
+			<br> 
+			Post Code:<br>
+			<input id="postcode" type="text" name="postcode">
+			<br>
+			</form>
+			<button onClick="getDistance()">Click Me</button>
+
+			<div id="noOfTimes"></div>			
+		</div>
+		<div class="footer">&copy;Copyright Chicken Walker Inc.2015 </div>
+		
+	</body>
+</html>
